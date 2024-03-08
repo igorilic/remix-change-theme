@@ -8,11 +8,23 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const changeTheme = () => {
+    const html = document.querySelector("html");
+    if (html) {
+      if (html.hasAttribute("data-mode")) {
+        html.removeAttribute("data-mode");
+      } else {
+        html.setAttribute("data-mode", "dark");
+      }
+    }
+  };
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
+    <div className="bg-white dark:bg-primary-50">
+      <button className="text-primary-900" onClick={changeTheme}>
+        Change Theme
+      </button>
       <ul>
-        <li>
+        <li className="dark:text-primary-500">
           <a
             target="_blank"
             href="https://remix.run/tutorials/blog"

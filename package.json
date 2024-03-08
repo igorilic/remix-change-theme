@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "dev": "remix vite:dev",
+    "dev": "run-p dev:*",
+    "dev:remix": "remix vite:dev",
+    "dev:css": "npm run generate:css -- --watch",
+    "generate:css": "tailwindcss -o ./app/tailwind.css",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
@@ -30,6 +33,9 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "hex-rgb": "^4.3.0",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
